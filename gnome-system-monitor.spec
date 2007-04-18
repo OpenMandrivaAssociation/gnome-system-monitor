@@ -1,6 +1,6 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.18.0
+Version: 2.18.1.1
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
@@ -19,7 +19,7 @@ BuildRequires: libwnck-devel >= 2.5
 #BuildRequires: pcre-devel
 BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
-BuildRequires: gnome-doc-utils libxslt-proc
+BuildRequires: gnome-doc-utils
 BuildRequires: perl-XML-Parser
 BuildRequires: desktop-file-utils
 Obsoletes: procman gtop
@@ -108,5 +108,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_miconsdir}/*.png
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
-
-

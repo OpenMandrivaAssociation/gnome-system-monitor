@@ -1,6 +1,6 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.18.2
+Version: 2.19.3
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
@@ -14,8 +14,9 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: gtk2-devel
 BuildRequires: gnome-vfs2-devel
 BuildRequires: libgnome2-devel
-BuildRequires: libgtop2.0-devel >= 2.14.4
+BuildRequires: libgtop2.0-devel >= 2.19.3
 BuildRequires: libwnck-devel >= 2.5
+BuildRequires: libgtkmm2.4-devel
 #BuildRequires: pcre-devel
 BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper

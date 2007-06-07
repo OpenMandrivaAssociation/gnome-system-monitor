@@ -17,7 +17,7 @@ BuildRequires: libgnome2-devel
 BuildRequires: libgtop2.0-devel >= 2.19.3
 BuildRequires: libwnck-devel >= 2.5
 BuildRequires: libgtkmm2.4-devel
-#BuildRequires: pcre-devel
+BuildRequires: pcre-devel
 BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils

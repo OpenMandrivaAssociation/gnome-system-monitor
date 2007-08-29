@@ -1,6 +1,6 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.19.91
+Version: 2.19.91.1
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
@@ -23,7 +23,6 @@ BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils
 BuildRequires: perl-XML-Parser
 BuildRequires: desktop-file-utils
-BuildRequires: intltool
 Obsoletes: procman gtop
 Provides: procman = %{version}
 Provides: gtop
@@ -36,7 +35,6 @@ Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-intltoolize --force
 
 %build
 

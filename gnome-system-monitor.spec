@@ -56,7 +56,7 @@ done
 
 rm -f $RPM_BUILD_ROOT%{_var}
 
-# Mandrake menu
+# Mandriva menu
 mkdir -p $RPM_BUILD_ROOT%{_menudir}
 
 cat << EOF >  $RPM_BUILD_ROOT%{_menudir}/%{name}

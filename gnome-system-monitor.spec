@@ -22,7 +22,6 @@ BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils
 BuildRequires: perl-XML-Parser
-BuildRequires: desktop-file-utils
 Obsoletes: procman gtop
 Provides: procman = %{version}
 Provides: gtop
@@ -56,25 +55,6 @@ done
 
 rm -f $RPM_BUILD_ROOT%{_var}
 
-# Mandriva menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-
-cat << EOF >  $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):\
- needs="x11"\
- section="System/Monitoring"\
- title="GNOME System monitor"\
- longtitle="View current processes and monitor system state"\
- command="%{_bindir}/gnome-system-monitor"\
- icon="procman.png" \
- startup_notify="true" xdg="true"
-EOF
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="X-MandrivaLinux-System-Monitoring" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
-
 mkdir -p $RPM_BUILD_ROOT%{_miconsdir} $RPM_BUILD_ROOT%{_liconsdir}
 
 cp %{SOURCE1} $RPM_BUILD_ROOT%{_liconsdir}/procman.png
@@ -105,7 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/pixmaps/%name
 %dir %{_datadir}/omf/%name
 %{_datadir}/omf/%name/%name-C.omf
-%{_menudir}/*
 %{_miconsdir}/*.png
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png

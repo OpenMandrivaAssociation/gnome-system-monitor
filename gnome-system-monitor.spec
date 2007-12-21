@@ -10,6 +10,7 @@ Source1: procman48.png
 Source2: procman32.png
 Source3: procman16.png
 
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: gtk2-devel
 BuildRequires: gnome-vfs2-devel
 BuildRequires: libgnome2-devel

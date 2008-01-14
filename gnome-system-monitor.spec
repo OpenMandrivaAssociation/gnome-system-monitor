@@ -15,6 +15,7 @@ BuildRequires: gtk2-devel
 BuildRequires: gnome-vfs2-devel
 BuildRequires: libgnome2-devel
 BuildRequires: libgtop2.0-devel >= 2.19.3
+BuildRequires: librsvg-devel
 BuildRequires: libwnck-devel >= 2.5
 BuildRequires: gtkmm2.4-devel
 BuildRequires: pcre-devel

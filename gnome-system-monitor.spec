@@ -1,6 +1,6 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.21.4
+Version: 2.21.5
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME

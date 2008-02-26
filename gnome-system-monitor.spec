@@ -27,7 +27,7 @@ BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils
 BuildRequires: perl-XML-Parser
-BuildRequires: libpolkit-devel >= %{polkit_version}
+BuildRequires: polkit-devel >= %{polkit_version}
 BuildRequires: policykit-gnome-devel >= %{polkit_gnome_version}
 BuildRequires: intltool
 Obsoletes: procman gtop

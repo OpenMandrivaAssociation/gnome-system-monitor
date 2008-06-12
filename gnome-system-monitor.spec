@@ -81,17 +81,21 @@ cp %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/procman.png
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %mdkversion < 200900
 %post
 %update_scrollkeeper
 %post_install_gconf_schemas gnome-system-monitor
 %{update_menus}
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas gnome-system-monitor
 
+%if %mdkversion < 200900
 %postun
 %clean_scrollkeeper
 %{clean_menus}
+%endif
 
 %files -f %{name}.lang
 %defattr(-, root, root)

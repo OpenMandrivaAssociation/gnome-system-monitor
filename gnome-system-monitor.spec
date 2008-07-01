@@ -3,9 +3,9 @@
 
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.22.2
+Version: 2.22.3
 Release: %mkrel 1
-License: GPL
+License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -26,7 +26,6 @@ BuildRequires: gtkmm2.4-devel
 BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils
-BuildRequires: perl-XML-Parser
 BuildRequires: polkit-devel >= %{polkit_version}
 BuildRequires: policykit-gnome-devel >= %{polkit_gnome_version}
 BuildRequires: intltool

@@ -3,7 +3,7 @@
 
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.24.4
+Version: 2.25.91
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -13,7 +13,7 @@ Source1: procman48.png
 Source2: procman32.png
 Source3: procman16.png
 # (fc) 2.21.5-3mdv add PolicyKit support (Fedora) (GNOME bug #491462)
-Patch0:	gnome-system-monitor-2.23.90-polkit.patch
+Patch0:	gnome-system-monitor-2.25.91-polkit.patch
 Patch1: gnome-system-monitor-2.24.3-format-strings.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: gtk2-devel
@@ -46,7 +46,7 @@ Gnome-system-monitor is a simple process and system monitor.
 %patch1 -p1
 
 #neeeded by patch0 
-autoreconf
+autoreconf -fi
 
 %build
 

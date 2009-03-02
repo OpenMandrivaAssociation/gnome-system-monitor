@@ -3,7 +3,7 @@
 
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.25.91
+Version: 2.26.0
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME

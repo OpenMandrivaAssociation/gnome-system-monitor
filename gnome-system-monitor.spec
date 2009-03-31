@@ -4,7 +4,7 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
 Version: 2.26.0.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 rm -rf %buildroot/var
 %find_lang %{name} --with-gnome
-for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
+for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do 
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
 done
 

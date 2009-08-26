@@ -1,10 +1,9 @@
-%define polkit_version 0.7
-%define polkit_gnome_version 0.7
+%define polkit_version 0.92
 
 Summary: Simple process monitor
 Name: gnome-system-monitor
 Version: 2.27.4
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
@@ -14,6 +13,8 @@ Source2: procman32.png
 Source3: procman16.png
 # (fc) 2.21.5-3mdv add PolicyKit support (Fedora) (GNOME bug #491462)
 Patch0:	gnome-system-monitor-2.25.91-polkit.patch
+# (fc) 2.27.4-2mdv Polkit1 support (Fedora) (GNOME bug #491462)
+Patch1: gnome-system-monitor-2.27.4-polkit1.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: gtk2-devel
 BuildRequires: gnome-vfs2-devel
@@ -25,8 +26,7 @@ BuildRequires: gtkmm2.4-devel
 BuildRequires: gnome-icon-theme >= 2.15.3
 BuildRequires: scrollkeeper
 BuildRequires: gnome-doc-utils
-BuildRequires: polkit-devel >= %{polkit_version}
-BuildRequires: policykit-gnome-devel >= %{polkit_gnome_version}
+BuildRequires: polkit-1-devel >= %{polkit_version}
 BuildRequires: intltool
 Obsoletes: procman gtop
 Provides: procman = %{version}
@@ -34,7 +34,7 @@ Provides: gtop
 Requires(post): scrollkeeper >= 0.3
 Requires(postun): scrollkeeper >= 0.3
 Requires: lsb-release
-Requires: policykit-gnome >= %{polkit_gnome_version}
+Requires: polkit-agent
 
 %description
 Gnome-system-monitor is a simple process and system monitor.
@@ -42,8 +42,9 @@ Gnome-system-monitor is a simple process and system monitor.
 %prep
 %setup -q
 %patch0 -p1 -b .polkit
+%patch1 -p1 -b .polkit1
 
-#neeeded by patch0 
+#neeeded by patches 0 & 1
 autoreconf -fi
 
 %build
@@ -107,5 +108,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_liconsdir}/*.png
 %{_sysconfdir}/dbus-1/system.d/org.gnome.SystemMonitor.Mechanism.conf
 %{_libdir}/gnome-system-monitor-mechanism
-%{_datadir}/PolicyKit/policy/org.gnome.system-monitor.policy
+%{_datadir}/polkit-1/actions/org.gnome.system-monitor.policy
 %{_datadir}/dbus-1/system-services/org.gnome.SystemMonitor.Mechanism.service

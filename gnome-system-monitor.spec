@@ -3,7 +3,7 @@
 Summary: Simple process monitor
 Name: gnome-system-monitor
 Version: 2.28.0
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
@@ -33,7 +33,9 @@ Provides: procman = %{version}
 Provides: gtop
 Requires(post): scrollkeeper >= 0.3
 Requires(postun): scrollkeeper >= 0.3
+%ifnarch %arm %mips
 Requires: lsb-release
+%endif
 Requires: polkit-agent
 
 %description

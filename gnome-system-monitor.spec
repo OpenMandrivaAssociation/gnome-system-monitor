@@ -60,7 +60,7 @@ make -C src gnome-system-monitor-mechanism-glue.h gnome-system-monitor-mechanism
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 rm -rf %buildroot/var
@@ -69,16 +69,16 @@ for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
 done
 
-rm -f $RPM_BUILD_ROOT%{_var}
+rm -f %{buildroot}%{_var}
 
-mkdir -p $RPM_BUILD_ROOT%{_miconsdir} $RPM_BUILD_ROOT%{_liconsdir}
+mkdir -p %{buildroot}%{_miconsdir} %{buildroot}%{_liconsdir}
 
-cp %{SOURCE1} $RPM_BUILD_ROOT%{_liconsdir}/procman.png
-cp %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/procman.png
-cp %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/procman.png
+cp %{SOURCE1} %{buildroot}%{_liconsdir}/procman.png
+cp %{SOURCE2} %{buildroot}%{_iconsdir}/procman.png
+cp %{SOURCE3} %{buildroot}%{_miconsdir}/procman.png
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post

@@ -2,113 +2,63 @@
 
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 2.28.2
-Release: %mkrel 3
+Version: 3.2.1
+Release: 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Source1: procman48.png
 Source2: procman32.png
 Source3: procman16.png
-# (fc) 2.21.5-3mdv add PolicyKit support (Fedora) (GNOME bug #491462)
-Patch0:	gnome-system-monitor-2.28.2-polkit.patch
-# (fc) 2.27.4-2mdv Polkit1 support (Fedora) (GNOME bug #491462)
-Patch1: gnome-system-monitor-2.28.2-polkit1.patch
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
-BuildRequires: gtk2-devel
-BuildRequires: gnome-vfs2-devel
-BuildRequires: libgnome2-devel
-BuildRequires: libgtop2.0-devel >= 2.23.1
-BuildRequires: librsvg-devel
-BuildRequires: libwnck-devel >= 2.5
-BuildRequires: gtkmm2.4-devel
-BuildRequires: gnome-icon-theme >= 2.15.3
-BuildRequires: scrollkeeper
-BuildRequires: gnome-doc-utils
-BuildRequires: polkit-1-devel >= %{polkit_version}
-BuildRequires: intltool
-Obsoletes: procman gtop
-Provides: procman = %{version}
-Provides: gtop
-Requires(post): scrollkeeper >= 0.3
-Requires(postun): scrollkeeper >= 0.3
+
+BuildRequires:	gnome-doc-utils
+BuildRequires:	intltool >= 0.41.0
+BuildRequires:	pkgconfig(giomm-2.4) >= 2.27
+BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
+BuildRequires:	pkgconfig(glibmm-2.4) >= 2.27
+BuildRequires:	pkgconfig(gnome-icon-theme) >= 2.31
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
+BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
+BuildRequires:	pkgconfig(libgtop-2.0) >= 2.28.2
+BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
+BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
+Requires:	polkit-agent
 %ifnarch %arm %mips
 Requires: lsb-release
 %endif
-Requires: polkit-agent
 
 %description
 Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-%patch0 -p1 -b .polkit
-%patch1 -p1 -b .polkit1
-
-#neeeded by patches 0 & 1
-autoreconf -fi
+%apply_patches
 
 %build
+%configure2_5x
 
-%configure2_5x \
-    --enable-polkit
-
-#needed by patch0
-make -C src gnome-system-monitor-mechanism-glue.h gnome-system-monitor-mechanism-client-glue.h
-
-%make
+%make LIBS='-lgmodule-2.0'
 
 %install
 rm -rf %{buildroot}
-
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
-rm -rf %buildroot/var
+%makeinstall_std
 %find_lang %{name} --with-gnome
-for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do 
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
-done
-
-rm -f %{buildroot}%{_var}
 
 mkdir -p %{buildroot}%{_miconsdir} %{buildroot}%{_liconsdir}
-
 cp %{SOURCE1} %{buildroot}%{_liconsdir}/procman.png
 cp %{SOURCE2} %{buildroot}%{_iconsdir}/procman.png
 cp %{SOURCE3} %{buildroot}%{_miconsdir}/procman.png
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%update_scrollkeeper
-%post_install_gconf_schemas gnome-system-monitor
-%{update_menus}
-%endif
-
-%preun
-%preun_uninstall_gconf_schemas gnome-system-monitor
-
-%if %mdkversion < 200900
-%postun
-%clean_scrollkeeper
-%{clean_menus}
-%endif
-
 %files -f %{name}.lang
-%defattr(-, root, root)
 %doc README NEWS AUTHORS
-%config(noreplace) %{_sysconfdir}/gconf/schemas/*
 %{_bindir}/gnome-system-monitor
 %{_datadir}/applications/*
-%_datadir/pixmaps/%name
-%dir %{_datadir}/omf/%name
-%{_datadir}/omf/%name/%name-C.omf
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
+%{_datadir}/pixmaps/%{name}
 %{_miconsdir}/*.png
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
-%{_sysconfdir}/dbus-1/system.d/org.gnome.SystemMonitor.Mechanism.conf
-%{_libdir}/gnome-system-monitor-mechanism
-%{_datadir}/polkit-1/actions/org.gnome.system-monitor.policy
-%{_datadir}/dbus-1/system-services/org.gnome.SystemMonitor.Mechanism.service
+

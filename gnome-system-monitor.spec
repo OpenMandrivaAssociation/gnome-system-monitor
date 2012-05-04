@@ -32,7 +32,8 @@ Gnome-system-monitor is a simple process and system monitor.
 %apply_patches
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-scrollkeeper
 
 %make LIBS='-lgmodule-2.0'
 

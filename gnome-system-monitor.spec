@@ -47,5 +47,6 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
+%{_datadir}/%{name}/preferences.ui
 %{_datadir}/pixmaps/%{name}
 

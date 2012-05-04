@@ -1,16 +1,11 @@
-%define polkit_version 0.92
-
 Summary: Simple process monitor
 Name: gnome-system-monitor
-Version: 3.2.1
+Version: 3.4.1
 Release: 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Source1: procman48.png
-Source2: procman32.png
-Source3: procman16.png
 
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.41.0
@@ -42,14 +37,8 @@ Gnome-system-monitor is a simple process and system monitor.
 %make LIBS='-lgmodule-2.0'
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %{name} --with-gnome
-
-mkdir -p %{buildroot}%{_miconsdir} %{buildroot}%{_liconsdir}
-cp %{SOURCE1} %{buildroot}%{_liconsdir}/procman.png
-cp %{SOURCE2} %{buildroot}%{_iconsdir}/procman.png
-cp %{SOURCE3} %{buildroot}%{_miconsdir}/procman.png
 
 %files -f %{name}.lang
 %doc README NEWS AUTHORS
@@ -58,7 +47,4 @@ cp %{SOURCE3} %{buildroot}%{_miconsdir}/procman.png
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/pixmaps/%{name}
-%{_miconsdir}/*.png
-%{_iconsdir}/*.png
-%{_liconsdir}/*.png
 

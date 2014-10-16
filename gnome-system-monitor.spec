@@ -2,8 +2,8 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	3.6.1
-Release:	7
+Version:	3.14.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -15,7 +15,7 @@ BuildRequires:	pkgconfig(giomm-2.4) >= 2.27
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(glibmm-2.4) >= 2.27
 BuildRequires:	pkgconfig(gnome-doc-utils)
-BuildRequires:	pkgconfig(gnome-icon-theme) >= 2.31
+BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
 BuildRequires:	pkgconfig(libgtop-2.0) >= 2.28.2
@@ -35,8 +35,7 @@ Gnome-system-monitor is a simple process and system monitor.
 %apply_patches
 
 %build
-%configure2_5x \
-	--disable-scrollkeeper
+%configure2_5x
 
 %make LIBS='-lgmodule-2.0'
 
@@ -50,6 +49,8 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
-%{_datadir}/%{name}/*.ui
-%{_datadir}/pixmaps/%{name}
+%{_libexecdir}/gnome-system-monitor/gsm-kill
+%{_libexecdir}/gnome-system-monitor/gsm-renice
+%{_datadir}/appdata/gnome-system-monitor.appdata.xml
+%{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 

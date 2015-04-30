@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   gnome-system-monitor-3.14.1.tar.xz: 31a8b03a798350e8b87d0b5dde73170c0156fd2b
+sources:
+  gnome-system-monitor-3.16.0.tar.xz: ca3ac5acffc7ed8a3d6669f09eb3d7ab9a23029f

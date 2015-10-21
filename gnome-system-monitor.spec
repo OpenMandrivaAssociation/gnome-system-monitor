@@ -2,7 +2,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	 3.16.0
+Version:	 3.18.0.1
 Release:	4
 License:	GPLv2+
 Group:		Graphical desktop/GNOME

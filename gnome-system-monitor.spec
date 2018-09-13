@@ -9,6 +9,7 @@ License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0: 1gnome-system-monitor-libghtop-fix.patch
 
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	itstool

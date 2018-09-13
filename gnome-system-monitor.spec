@@ -34,7 +34,7 @@ Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-%autopatch -p0
+%patch0 -p0
 
 %build
 %configure2_5x

@@ -24,7 +24,7 @@ BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
 BuildRequires:	meson
-BuildRequires:  polkit-devel
+#BuildRequires:  polkit-devel
 BuildRequires:	gnome-common
 BuildRequires:	yelp-tools
 

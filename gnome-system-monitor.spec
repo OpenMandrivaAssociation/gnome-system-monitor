@@ -3,13 +3,12 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	3.28.2
+Version:	3.30.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0: 1gnome-system-monitor-libghtop-fix.patch
 
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	itstool
@@ -34,7 +33,7 @@ Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-%patch0 -p0
+#patch0 -p0
 
 %build
 %configure2_5x

@@ -19,10 +19,15 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
-BuildRequires:	pkgconfig(libgtop-2.0) >= 2.28.2
+BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
+BuildRequires:	meson
+BuildRequires:  polkit-devel
+BuildRequires:	gnome-common
+BuildRequires:	yelp-tools
+
 Requires:	polkit-agent
 %ifnarch %arm %mips
 Requires: lsb-release
@@ -36,12 +41,11 @@ Gnome-system-monitor is a simple process and system monitor.
 #patch0 -p0
 
 %build
-%configure2_5x
-
-%make LIBS='-lgmodule-2.0'
+%meson
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 %find_lang %{name} --with-gnome
 
 %files -f %{name}.lang

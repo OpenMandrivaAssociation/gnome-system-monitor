@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  appstream-util
 BuildRequires:	meson
-#BuildRequires:  polkit-devel
+BuildRequires:  polkit-1-devel
 BuildRequires:	gnome-common
 BuildRequires:	yelp-tools
 

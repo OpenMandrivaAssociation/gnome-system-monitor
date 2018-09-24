@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
+BuildRequires:  pkgconfig(systemd)
 BuildRequires:	meson
 #BuildRequires:  polkit-devel
 BuildRequires:	gnome-common

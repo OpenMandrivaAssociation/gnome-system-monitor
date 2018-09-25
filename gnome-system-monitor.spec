@@ -3,7 +3,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	 3.18.2
+Version:	3.30.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -17,12 +17,20 @@ BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(glibmm-2.4) >= 2.27
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
+BuildRequires:  pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
-BuildRequires:	pkgconfig(libgtop-2.0) >= 2.28.2
+BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
+BuildRequires:  pkgconfig(systemd)
+BuildRequires:  appstream-util
+BuildRequires:	meson
+BuildRequires:  polkit-1-devel
+BuildRequires:	gnome-common
+BuildRequires:	yelp-tools
+
 Requires:	polkit-agent
 %ifnarch %arm %mips
 Requires: lsb-release
@@ -33,15 +41,14 @@ Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-%apply_patches
+#patch0 -p0
 
 %build
-%configure2_5x
-
-%make LIBS='-lgmodule-2.0'
+%meson
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 %find_lang %{name} --with-gnome
 
 %files -f %{name}.lang
@@ -52,6 +59,9 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_libexecdir}/gnome-system-monitor/gsm-kill
 %{_libexecdir}/gnome-system-monitor/gsm-renice
-%{_datadir}/appdata/gnome-system-monitor.appdata.xml
+%{_datadir}/metainfo/gnome-system-monitor.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
+%{_datadir}/gnome-system-monitor/gsm.gresource
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_iconsdir}/hicolor/*/apps/%{name}*.svg
 

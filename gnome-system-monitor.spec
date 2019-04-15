@@ -3,8 +3,8 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	3.30.0
-Release:	2
+Version:	3.32.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -62,6 +62,4 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_datadir}/metainfo/gnome-system-monitor.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 %{_datadir}/gnome-system-monitor/gsm.gresource
-%{_iconsdir}/hicolor/*/apps/%{name}.png
-%{_iconsdir}/hicolor/*/apps/%{name}*.svg
-
+%{_iconsdir}/hicolor/*/apps/org.gnome.SystemMonitor*.svg

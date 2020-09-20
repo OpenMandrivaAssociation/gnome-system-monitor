@@ -3,7 +3,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	3.36.1
+Version:	3.38.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -41,7 +41,6 @@ Gnome-system-monitor is a simple process and system monitor.
 
 %prep
 %setup -q
-#patch0 -p0
 
 %build
 %meson

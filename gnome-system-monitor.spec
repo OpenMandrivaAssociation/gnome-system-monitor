@@ -3,7 +3,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	3.38.0
+Version:	40.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -21,11 +21,13 @@ BuildRequires:  pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
 BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
+BuildRequires:  pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  appstream-util
+BuildRequires:  cmake
 BuildRequires:	meson
 BuildRequires:  polkit-1-devel
 BuildRequires:	gnome-common
@@ -51,14 +53,16 @@ Gnome-system-monitor is a simple process and system monitor.
 %find_lang %{name} --with-gnome
 
 %files -f %{name}.lang
-%doc README NEWS AUTHORS
+%doc README.md NEWS AUTHORS
 %{_bindir}/gnome-system-monitor
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_libexecdir}/gnome-system-monitor/gsm-kill
 %{_libexecdir}/gnome-system-monitor/gsm-renice
+%{_libexecdir}/gnome-system-monitor/gsm-taskset
 %{_datadir}/metainfo/gnome-system-monitor.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 %{_datadir}/gnome-system-monitor/gsm.gresource
 %{_iconsdir}/hicolor/*/apps/org.gnome.SystemMonitor*.svg
+%{_iconsdir}/hicolor/symbolic/apps/speedometer-symbolic.svg

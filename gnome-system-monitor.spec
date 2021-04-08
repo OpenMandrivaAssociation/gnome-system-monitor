@@ -53,7 +53,7 @@ Gnome-system-monitor is a simple process and system monitor.
 %find_lang %{name} --with-gnome
 
 %files -f %{name}.lang
-%doc README NEWS AUTHORS
+%doc README.md NEWS AUTHORS
 %{_bindir}/gnome-system-monitor
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml

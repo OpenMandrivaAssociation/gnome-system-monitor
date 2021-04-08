@@ -21,11 +21,13 @@ BuildRequires:  pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
 BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
+BuildRequires:  pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.0
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  appstream-util
+BuildRequires:  cmake
 BuildRequires:	meson
 BuildRequires:  polkit-1-devel
 BuildRequires:	gnome-common

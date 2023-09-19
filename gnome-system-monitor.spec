@@ -3,11 +3,11 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	44.0
-Release:	2
+Version:	45.0.2
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://www.gnome.org/
+Url:		https://www.gnome.org/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool >= 0.41.0

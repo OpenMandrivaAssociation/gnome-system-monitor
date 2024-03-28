@@ -3,7 +3,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	45.0.2
+Version:	46.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(glibmm-2.4) >= 2.27
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
 BuildRequires:  pkgconfig(gobject-2.0)
-BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
 BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
 BuildRequires:  pkgconfig(libhandy-1)

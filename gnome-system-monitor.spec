@@ -12,9 +12,9 @@ Source0:	https://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/%{url_ver}
 
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	itstool
-BuildRequires:	pkgconfig(giomm-2.4) >= 2.27
+BuildRequires:	pkgconfig(giomm-2.68)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
-BuildRequires:	pkgconfig(glibmm-2.4) >= 2.27
+BuildRequires:	pkgconfig(glibmm-2.68)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
 BuildRequires:  pkgconfig(gobject-2.0)

@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(adwaita-icon-theme) >= 2.31
 BuildRequires:  pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk4)
-BuildRequires:	pkgconfig(gtkmm-3.0) >= 2.99
+BuildRequires:	pkgconfig(gtkmm-4.0)
 BuildRequires:	pkgconfig(libgtop-2.0) >= 2.38.0
 BuildRequires:  pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.12

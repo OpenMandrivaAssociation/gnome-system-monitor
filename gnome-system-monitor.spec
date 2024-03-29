@@ -1,3 +1,5 @@
+%global optflags %{optflags} -Wno-narrowing
+
 %define _disable_rebuild_configure 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 

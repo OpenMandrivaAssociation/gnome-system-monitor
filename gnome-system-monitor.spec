@@ -69,4 +69,4 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_datadir}/gnome-system-monitor/gsm.gresource
 %{_iconsdir}/hicolor/*/apps/org.gnome.SystemMonitor*.svg
 %{_iconsdir}/hicolor/symbolic/apps/processes-symbolic.svg
-%{_iconsdir}/symbolic/apps/resources-symbolic.svg
+%{_iconsdir}/hicolor/symbolic/apps/resources-symbolic.svg

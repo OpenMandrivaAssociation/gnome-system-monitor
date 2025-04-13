@@ -5,7 +5,7 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	48.0
+Version:	48.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME

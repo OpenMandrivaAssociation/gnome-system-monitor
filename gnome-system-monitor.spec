@@ -67,7 +67,7 @@ Gnome-system-monitor is a simple process and system monitor.
 %{_libexecdir}/gnome-system-monitor/gsm-taskset
 %{_datadir}/metainfo/org.gnome.SystemMonitor.metainfo.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
-%{_datadir}/gnome-system-monitor/gsm.gresource
+#{_datadir}/gnome-system-monitor/gsm.gresource
 %{_iconsdir}/hicolor/*/apps/org.gnome.SystemMonitor*.svg
 %{_iconsdir}/hicolor/symbolic/apps/processes-symbolic.svg
 %{_iconsdir}/hicolor/symbolic/apps/resources-symbolic.svg

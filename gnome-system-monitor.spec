@@ -5,8 +5,8 @@
 
 Summary:	Simple process monitor
 Name:		gnome-system-monitor
-Version:	50.0
-Release:	3
+Version:	51.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://www.gnome.org/
